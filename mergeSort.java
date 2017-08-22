@@ -7,17 +7,17 @@ public class mergeSort {
 
 	public static void main(String[] args) {
 		Random random = new Random();
-		int[] arr = new int[100000000];
+		int[] arr = new int[10000000];
 		for (int i = 0; i < arr.length; i++) {
-			arr[i] = random.nextInt(1000000000);
+			arr[i] = random.nextInt(100000000);
 		}
 		long start = System.currentTimeMillis();
 //		for (int i : arr) {
 //			System.out.print(i + " ");
 //		}
 //		System.out.println("\n");
-		mergeSort(arr); // time 2s
-//		Arrays.sort(arr);					// time 12s
+//		mergeSort(arr); // time 2s
+		Arrays.sort(arr);					// time 1s
 		//HeapSort.heapSort(arr);
 //		for (int i : arr) {
 //			System.out.print(i + " ");
