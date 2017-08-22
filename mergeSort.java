@@ -16,8 +16,8 @@ public class mergeSort {
 //			System.out.print(i + " ");
 //		}
 //		System.out.println("\n");
-//		mergeSort(arr); // time 2s
-		Arrays.sort(arr);					// time 1s
+		mergeSort(arr); // time 2s
+//		Arrays.sort(arr);					// time 1s
 		//HeapSort.heapSort(arr);
 //		for (int i : arr) {
 //			System.out.print(i + " ");
