@@ -1,9 +1,9 @@
-package plainProject;
+package sortAlgorithms;
 
 import java.util.Arrays;
 import java.util.Random;
 
-public class HeapAlg {
+public class HeapSort {
 
 	public static void main(String[] args) {
 		Random random = new Random();
@@ -12,8 +12,8 @@ public class HeapAlg {
 			arr[i] = random.nextInt(10000000);
 		}
 		long start = System.currentTimeMillis();
-		heapSort(arr);			//time 60s
-		//Arrays.sort(arr);		//time 10s
+		heapSort(arr);			//time 40+s
+		//Arrays.sort(arr);		//time 10+s
 		System.out.println(System.currentTimeMillis() - start);
 		
 		
