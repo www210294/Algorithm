@@ -30,7 +30,8 @@ public class QuickSort {
 		if (start >= end) {
 			return;
 		}
-		int p1 = start, p2 = start, comp = arr[start];
+		//  start ... p1 ... p2 ... end, arr[start] <= arr[p1] = arr[p2] <= arr[end]
+		int p1 = start, p2 = start, comp = arr[start];    
 		for (int i = start + 1; i <= end; i++) {
 			if (arr[i] < comp) {
 				arr[p1] = arr[i];
