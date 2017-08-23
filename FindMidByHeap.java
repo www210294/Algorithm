@@ -6,13 +6,13 @@ public class FindMidByHeap {
 
 	public static void main(String[] args) {
 		Random random = new Random();
-		int[] arr = new int[16];
+		int[] arr = new int[20];
 		for(int i = 0; i < arr.length; i++) {
 			arr[i] = random.nextInt(100);
 		}
 		long start = System.currentTimeMillis();
 		double mid = findMid(arr);
-		System.out.println(mid);
+		System.out.println("mid: " + mid);
 		System.out.println(System.currentTimeMillis() - start);
 		
 		
@@ -30,11 +30,11 @@ public class FindMidByHeap {
 		
 	}
 	public static double findMid(int[] arr) {
-		//int len = (int)Math.ceil(arr.length / 2);
-		int len = arr.length;
+		int len = (int)Math.ceil(arr.length / 2) + 1;
+		//int len = arr.length;
 		int[] leftHeap = new int[len], rightHeap = new int[len];
 		int p1 = 0, p2 =0, mid = arr[0];
-		for(int i = 0; i < arr.length; i++) {
+		for(int i = 1; i < arr.length; i++) {
 			if(arr[i] < mid) {
 				leftHeap[p1] =  arr[i];
 				bigAddAdjust(leftHeap, p1++);
@@ -48,12 +48,14 @@ public class FindMidByHeap {
 					rightHeap[p2] = mid;
 					smallAddAdjust(rightHeap, p2++);
 					mid = leftHeap[0];
-					bigRmAdjust(leftHeap, 0, p1--);
+					leftHeap[0] = leftHeap[--p1];
+					bigRmAdjust(leftHeap, 0, p1 - 1);
 				} else {
 					leftHeap[p1] = mid;
 					bigAddAdjust(leftHeap, p1++);
 					mid = rightHeap[0];
-					smallRmAdjust(rightHeap, 0, p2--);
+					rightHeap[0] = rightHeap[--p2];
+					smallRmAdjust(rightHeap, 0, p2 - 1);
 				}
 			}
 		}
@@ -61,7 +63,7 @@ public class FindMidByHeap {
 			return mid;
 		} else {
 			int temp = p1 > p2 ? leftHeap[0] : rightHeap[0];
-			return (temp * 0.1 + mid)/2;
+			return (temp * 1.0 + mid)/2;
 		}
 		
 	}
